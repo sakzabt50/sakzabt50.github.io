@@ -4,86 +4,149 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>K-YOM เคยอม - เสียวทุกช็อต</title>
+
   <style>
     body {
       margin: 0;
       font-family: sans-serif;
-      background-color: #1a1a1a;
-      color: #eee;
+      background-color: #ffe6ef; /* ชมพูอ่อน */
+      color: #5a2a3a;
     }
+
     header {
-      background: #111;
+      background: #ffb6c1;
       padding: 1em;
       text-align: center;
       font-size: 2em;
       font-weight: bold;
-      color: #f55;
+      color: #7a1230;
     }
+
     nav {
-      background: #222;
-      padding: 0.5em;
+      background: #ffd1dc;
+      padding: 0.7em;
       text-align: center;
     }
+
     nav a {
-      color: #aaa;
-      margin: 0 10px;
+      color: #7a1230;
+      margin: 0 12px;
       text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
     }
+
     nav a:hover {
-      color: #f55;
+      color: #c2185b;
     }
+
     .video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
       padding: 20px;
     }
+
     .video-card {
-      background: #2a2a2a;
+      background: #fff0f5;
       padding: 10px;
-      border-radius: 8px;
+      border-radius: 12px;
       transition: 0.3s;
     }
+
     .video-card:hover {
-      background: #333;
+      background: #ffe4ec;
+      transform: scale(1.02);
     }
+
     .video-card img {
       width: 100%;
-      border-radius: 6px;
+      border-radius: 10px;
     }
+
     .video-title {
-      margin-top: 5px;
+      margin-top: 6px;
       font-size: 0.9em;
+      font-weight: bold;
     }
+
     footer {
-      background: #111;
+      background: #ffb6c1;
       text-align: center;
       padding: 1em;
-      color: #555;
+      color: #7a1230;
+    }
+
+    /* ===== Login Modal ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-box {
+      background: #fff0f5;
+      padding: 20px;
+      border-radius: 14px;
+      width: 280px;
+      text-align: center;
+    }
+
+    .modal-box h2 {
+      margin-top: 0;
+      color: #c2185b;
+    }
+
+    .modal-box input {
+      width: 90%;
+      padding: 8px;
+      margin: 6px 0;
+      border-radius: 8px;
+      border: 1px solid #ffb6c1;
+    }
+
+    .modal-box button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 20px;
+      background: #ff69b4;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .modal-box button:hover {
+      background: #e91e63;
     }
   </style>
 </head>
+
 <body>
 
   <header>XXXHub69</header>
+
   <nav>
     <a href="#">หน้าแรก</a>
     <a href="#">หมวดหมู่</a>
     <a href="#">สมัครสมาชิก</a>
-    <a href="#">เข้าสู่ระบบ</a>
+    <a onclick="openLogin()">เข้าสู่ระบบ</a>
   </nav>
 
   <section class="video-grid">
     <div class="video-card">
-      <img src="https://via.placeholder.com/300x170?text=VIDEO+1" alt="วิดีโอ1">
+      <img src="https://via.placeholder.com/300x170?text=VIDEO+1">
       <div class="video-title">สาวไทยเงี่ยนจัด โดนแทงรัวๆ</div>
     </div>
     <div class="video-card">
-      <img src="https://via.placeholder.com/300x170?text=VIDEO+2" alt="วิดีโอ2">
+      <img src="https://via.placeholder.com/300x170?text=VIDEO+2">
       <div class="video-title">อมสดจนน้ำแตกคาปาก</div>
     </div>
     <div class="video-card">
-      <img src="https://via.placeholder.com/300x170?text=VIDEO+3" alt="วิดีโอ3">
+      <img src="https://via.placeholder.com/300x170?text=VIDEO+3">
       <div class="video-title">เย็ดแฟนเพื่อน แตกในไม่รู้ตัว</div>
     </div>
   </section>
@@ -91,6 +154,43 @@
   <footer>
     &copy; 2025 XXXHub69. เสียวได้ทุกวัน ไม่มีพัก.
   </footer>
+
+  <!-- Login Modal -->
+  <div class="modal" id="loginModal">
+    <div class="modal-box">
+      <h2>เข้าสู่ระบบ</h2>
+      <input type="text" id="user" placeholder="ชื่อผู้ใช้">
+      <input type="password" id="pass" placeholder="รหัสผ่าน">
+      <br>
+      <button onclick="login()">เข้าใช้งาน</button>
+    </div>
+  </div>
+
+  <script>
+    function openLogin() {
+      document.getElementById("loginModal").style.display = "flex";
+    }
+
+    function login() {
+      const user = document.getElementById("user").value;
+      const pass = document.getElementById("pass").value;
+
+      // เดโม: user=admin pass=1234
+      if (user === "admin" && pass === "1234") {
+        alert("เข้าสู่ระบบสำเร็จ 💖");
+        document.getElementById("loginModal").style.display = "none";
+      } else {
+        alert("ชื่อผู้ใช้หรือรหัสผ่านผิด 😘");
+      }
+    }
+
+    // คลิกพื้นหลังเพื่อปิด
+    document.getElementById("loginModal").onclick = e => {
+      if (e.target.id === "loginModal") {
+        e.target.style.display = "none";
+      }
+    }
+  </script>
 
 </body>
 </html>
