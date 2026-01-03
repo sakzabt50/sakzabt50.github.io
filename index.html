@@ -28,10 +28,11 @@ nav a{
   margin:0 12px;
   color:#7a1230;
   font-weight:bold;
-  cursor:pointer;
   text-decoration:none;
 }
-nav a:hover{color:#e91e63}
+nav a:hover{
+  color:#e91e63;
+}
 .video-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -42,47 +43,26 @@ nav a:hover{color:#e91e63}
   background:#fff0f5;
   padding:10px;
   border-radius:14px;
+  transition:.3s;
+}
+.video-card:hover{
+  transform:scale(1.03);
+  background:#ffe4ec;
 }
 .video-card img{
   width:100%;
   border-radius:12px;
 }
+.video-title{
+  margin-top:6px;
+  font-weight:bold;
+  font-size:.9em;
+}
 footer{
   background:#ffb6c1;
   text-align:center;
   padding:1em;
-}
-
-/* LOGIN */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.4);
-  justify-content:center;
-  align-items:center;
-}
-.modal-box{
-  background:#fff0f5;
-  padding:20px;
-  border-radius:16px;
-  width:280px;
-  text-align:center;
-}
-.modal-box input{
-  width:90%;
-  padding:8px;
-  margin:6px 0;
-  border-radius:10px;
-  border:1px solid #ffb6c1;
-}
-.modal-box button{
-  padding:8px 18px;
-  border:none;
-  border-radius:20px;
-  background:#ff69b4;
-  color:white;
-  font-weight:bold;
+  color:#7a1230;
 }
 </style>
 </head>
@@ -94,71 +74,35 @@ footer{
 <nav>
   <a href="#">หน้าแรก</a>
   <a href="#">หมวดหมู่</a>
-  <a href="#">สมัครสมาชิก</a>
-  <a onclick="openLogin()">เข้าสู่ระบบ</a>
+  <a href="#">วิดีโอล่าสุด</a>
+  <a href="#">ยอดนิยม</a>
 </nav>
 
 <section class="video-grid">
   <div class="video-card">
-    <img src="https://via.placeholder.com/300x170">
-    <div>สาวไทยเงี่ยนจัด โดนแทงรัวๆ</div>
+    <img src="https://via.placeholder.com/300x170?text=VIDEO+1">
+    <div class="video-title">สาวไทยเงี่ยนจัด โดนแทงรัวๆ</div>
   </div>
+
   <div class="video-card">
-    <img src="https://via.placeholder.com/300x170">
-    <div>อมสดจนน้ำแตกคาปาก</div>
+    <img src="https://via.placeholder.com/300x170?text=VIDEO+2">
+    <div class="video-title">อมสดจนน้ำแตกคาปาก</div>
+  </div>
+
+  <div class="video-card">
+    <img src="https://via.placeholder.com/300x170?text=VIDEO+3">
+    <div class="video-title">เย็ดแฟนเพื่อน แตกในไม่รู้ตัว</div>
+  </div>
+
+  <div class="video-card">
+    <img src="https://via.placeholder.com/300x170?text=VIDEO+4">
+    <div class="video-title">ครางดังทั้งห้อง เสียวจัด</div>
   </div>
 </section>
 
-<footer>&copy; 2025 XXXHub69</footer>
-
-<!-- LOGIN MODAL -->
-<div class="modal" id="loginModal">
-  <div class="modal-box">
-    <h3>เข้าสู่ระบบ</h3>
-    <input id="user" placeholder="Email">
-    <input id="pass" type="password" placeholder="Password">
-    <button onclick="firebaseLogin()">เข้าใช้งาน</button>
-  </div>
-</div>
-
-<script>
-function openLogin(){
-  document.getElementById("loginModal").style.display="flex";
-}
-</script>
-
-<!-- 🔥 FIREBASE LOGIN -->
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-/* 🔧 ใส่ของต้าวตรงนี้ */
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "XXXX",
-  appId: "XXXX"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-window.firebaseLogin = function(){
-  const email = document.getElementById("user").value;
-  const pass = document.getElementById("pass").value;
-
-  signInWithEmailAndPassword(auth,email,pass)
-    .then(()=>{
-      alert("เข้าสู่ระบบสำเร็จ 💖");
-      document.getElementById("loginModal").style.display="none";
-    })
-    .catch(e=>{
-      alert("เข้าไม่ได้ ❌\n"+e.message);
-    });
-}
-</script>
+<footer>
+  &copy; 2025 XXXHub69 · เสียวได้ทุกวัน 💗
+</footer>
 
 </body>
 </html>
