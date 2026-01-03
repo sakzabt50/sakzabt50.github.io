@@ -2,50 +2,70 @@
 <html lang="th">
 <head>
 <meta charset="utf-8">
-<title>Gallery Media</title>
+<title>Sweet Gallery</title>
+
 <style>
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #111;
-    color: #fff;
+    background: #fff0f5; /* ชมพูอ่อน */
+    color: #5a2a3a;
   }
+
   header {
-    background: #000;
-    padding: 15px;
+    background: #ffc0cb;
+    padding: 16px;
     text-align: center;
     font-size: 24px;
+    font-weight: bold;
+    color: #7a1f3d;
   }
+
   nav {
     text-align: center;
-    padding: 10px;
+    padding: 12px;
+    background: #ffe4ec;
   }
+
   nav button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    background: #222;
+    margin: 5px;
+    padding: 10px 22px;
+    background: #ff9eb5;
     color: #fff;
     border: none;
+    border-radius: 20px;
+    font-size: 16px;
     cursor: pointer;
   }
+
+  nav button:hover {
+    background: #ff7fa0;
+  }
+
   .grid {
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 15px;
   }
+
   .grid img {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   }
+
   .video-section {
     padding: 20px;
   }
+
   iframe {
     width: 100%;
-    height: 250px;
+    height: 230px;
     border: none;
-    border-radius: 8px;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    margin-bottom: 15px;
   }
 </style>
 </head>
@@ -53,7 +73,7 @@
 <body>
 
 <header>
-  My Media Gallery
+  💕 Sweet Media Gallery
 </header>
 
 <nav>
@@ -62,25 +82,22 @@
 </nav>
 
 <section id="photos" class="grid">
-  <!-- รูปตัวอย่าง -->
-  <img src="https://via.placeholder.com/300x200?text=Photo+1" alt="Photo 1">
-  <img src="https://via.placeholder.com/300x200?text=Photo+2" alt="Photo 2">
-  <img src="https://via.placeholder.com/300x200?text=Photo+3" alt="Photo 3">
-  <!-- เพิ่มรูปเองได้ -->
+  <img src="https://via.placeholder.com/300x200?text=Photo+1">
+  <img src="https://via.placeholder.com/300x200?text=Photo+2">
+  <img src="https://via.placeholder.com/300x200?text=Photo+3">
 </section>
 
 <section id="videos" class="video-section" style="display:none;">
-  <h2>คลิป</h2>
-  <!-- ตัวอย่างวิดีโอจาก YouTube -->
   <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
   <iframe src="https://www.youtube.com/embed/oHg5SJYRHA0" allowfullscreen></iframe>
-  <!-- เปลี่ยนลิงก์เป็นของตัวเองได้ -->
 </section>
 
 <script>
 function showSection(section) {
-  document.getElementById("photos").style.display = (section === 'photos') ? 'grid' : 'none';
-  document.getElementById("videos").style.display = (section === 'videos') ? 'block' : 'none';
+  document.getElementById("photos").style.display =
+    section === 'photos' ? 'grid' : 'none';
+  document.getElementById("videos").style.display =
+    section === 'videos' ? 'block' : 'none';
 }
 </script>
 
